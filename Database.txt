@@ -1,0 +1,44 @@
+create database EmployeeManagementSystem;
+
+create table Department(Id int primary key ,Name varchar(30),IsActive varchar(4));
+insert into Department values(1,'B.Tech','yes')
+,(2,'M.Tech','yes')
+,(3,'BCA','yes')
+,(4,'MCA','no')
+,(5,'B.Com','yes');               
+insert into Department values(10,'mca','yes');
+drop table Department
+select*from Department;
+
+create table Employee(Id int primary key ,Name varchar(30),Email varchar(20),Phone varchar(15),DepartmentId int foreign key references Department(Id) ,IsActive varchar(4));
+insert into Employee values(11,'Kulwinder singh','hsb@gmail.com','42343212',1,'yes'),
+(12,'Davinder singh','heb@gmail.com','42343223',2,'yes'),
+(13,'Gurjnder singh','qsb@gmail.com','423432231',3,'no'),
+(14,'Harpreet singh','wsb@gmail.com','4234322567',4,'yes'),
+(15,'Rishabh singh','asb@gmail.com','423432211',5,'yes');
+insert into Employee values(16,'rohan singh','ase@gmail.com','423432211',19,'yes');
+drop table Employee;
+select *from Employee
+create table EmployeeSkill(Id int primary key ,EmployeeId int foreign key references Employee(Id),Skill_ID int foreign key references Skill(Id));
+insert into EmployeeSkill values
+(3,13,22),
+(4,14,23),
+(5,15,24);
+
+insert into EmployeeSkill values(6,16,22);
+drop table EmployeeSkill
+select *from Skill
+
+create table Skill(Id int primary key ,Name varchar(30),IsActive varchar(4));
+insert into Skill values(21,'.NET','yes'),
+(22,'JAVA','yes'),
+(23,'C#','yes'),
+(24,'Ruby','yes'),
+(25,'C++','yes');
+insert into Skill values(20,'.NET','yes');
+
+
+create table Employee(Id int primary key ,Name varchar(30),Email varchar(20),Phone 
+varchar(15), DepartmentId int foreign key references Department(Id) ,IsActive varchar(4));
+select*from Employee
+drop table Employee
